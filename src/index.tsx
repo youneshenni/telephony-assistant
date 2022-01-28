@@ -7,7 +7,7 @@ const LINKING_ERROR =
   '- You are not using Expo managed workflow\n';
 
 const TelephonyAssistant = NativeModules.TelephonyAssistant
-  ? NativeModules.TelephonyAssistant
+  ? NativeModules.TelephonyAssistant.getSIMCount()
   : new Proxy(
       {},
       {

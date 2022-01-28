@@ -1,7 +1,4 @@
-package com.reactnativetelephonyassistant;
-
-import androidx.annotation.NonNull;
-
+package com.mobile.USSD;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -12,17 +9,20 @@ import java.util.Collections;
 import java.util.List;
 
 public class TelephonyAssistantPackage implements ReactPackage {
-    @NonNull
+
     @Override
-    public List<NativeModule> createNativeModules(@NonNull ReactApplicationContext reactContext) {
+    public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
+        return Collections.emptyList();
+    }
+
+    @Override
+    public List<NativeModule> createNativeModules(
+            ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
-        modules.add(new TelephonyAssistantModule(reactContext));
+
+        modules.add(new USSD(reactContext));
+
         return modules;
     }
 
-    @NonNull
-    @Override
-    public List<ViewManager> createViewManagers(@NonNull ReactApplicationContext reactContext) {
-        return Collections.emptyList();
-    }
 }
